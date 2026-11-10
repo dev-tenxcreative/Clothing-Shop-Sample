@@ -6,7 +6,15 @@ import type { NextConfig } from "next";
  * format the browser needs. `remotePatterns` still lists every allowed host so
  * switching back to the built-in optimiser is a one-line change.
  */
+/**
+ * Cloudflare Workers Builds sets WORKERS_CI. OpenNext (scripts/cloudflare-postbuild.mjs)
+ * bundles the Next.js "standalone" output, so produce it there — exactly what
+ * `opennextjs-cloudflare build` would set — while local `next start` keeps working.
+ */
+const isCloudflareBuild = Boolean(process.env.WORKERS_CI || process.env.CLOUDFLARE_BUILD);
+
 const nextConfig: NextConfig = {
+  ...(isCloudflareBuild ? { output: "standalone" as const, outputFileTracingRoot: process.cwd() } : {}),
   reactStrictMode: true,
   poweredByHeader: false,
   images: {

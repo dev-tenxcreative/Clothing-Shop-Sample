@@ -1,0 +1,22 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // Must match the Worker name in the Cloudflare dashboard.
+  "name": "clothing-shop-sample",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-11-10",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "services": [
+    {
+      // Self-reference binding used by OpenNext. The service name MUST equal "name" above.
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "clothing-shop-sample"
+    }
+  ],
+  "observability": {
+    "enabled": true
+  }
+}

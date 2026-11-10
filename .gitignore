@@ -42,3 +42,10 @@ next-env.d.ts
 
 # local tooling
 .claude/
+
+# cloudflare / opennext
+.open-next/
+.wrangler/
+.dev.vars*
+!.dev.vars.example
+cloudflare-env.d.ts
