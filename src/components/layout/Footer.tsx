@@ -46,6 +46,19 @@ function FooterCol({ title, links }: { title: string; links: { label: string; hr
   );
 }
 
+/** Small gold diamond with hairlines either side, used between bottom-bar items. */
+function FooterDivider() {
+  return (
+    <span aria-hidden className="hidden items-center gap-1.5 sm:inline-flex">
+      <span className="bg-gold/40 h-px w-4" />
+      <svg viewBox="0 0 10 10" className="text-gold h-2 w-2">
+        <path d="M5 0 L10 5 L5 10 L0 5 Z" fill="currentColor" />
+      </svg>
+      <span className="bg-gold/40 h-px w-4" />
+    </span>
+  );
+}
+
 export function Footer() {
   return (
     <footer className="bg-ink text-ivory relative overflow-hidden" aria-labelledby="footer-heading">
@@ -103,10 +116,23 @@ export function Footer() {
           VELORA
         </div>
 
-        <div className="border-ivory/10 text-ivory/55 mt-6 flex flex-col items-center justify-between gap-5 border-t pt-8 text-[0.78rem] md:flex-row">
-          <p>
-            © <FooterYear /> VELORA. Designed in Colombo with care.
-          </p>
+        <div className="border-ivory/10 text-ivory/55 mt-6 flex flex-wrap items-center justify-center gap-x-5 gap-y-4 border-t pt-8 text-center text-[0.78rem] lg:flex-nowrap lg:whitespace-nowrap">
+          <span>
+            © <FooterYear /> VELORA. All rights reserved.
+          </span>
+          <FooterDivider />
+          <span>
+            Designed &amp; Developed by{" "}
+            <a
+              href="http://tenxcreative.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-ivory/80 decoration-ivory/30 hover:text-ivory hover:decoration-blush font-medium underline underline-offset-4 transition-colors"
+            >
+              10XCreative
+            </a>
+          </span>
+          <FooterDivider />
           <PaymentIcons />
         </div>
       </div>
