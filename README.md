@@ -1,4 +1,4 @@
-# VELORA — *Grace, in every thread.*
+# VELORA — *Grace, in every thread. - Clothing store*
 
 A production-quality, fully responsive e-commerce storefront for **VELORA**, a modern women’s clothing label (frocks, blouses, skirts, pants and dresses). Built with the Next.js App Router, TypeScript and Tailwind CSS, with editorial motion design throughout.
 
